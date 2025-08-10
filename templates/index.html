@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Spam Detector - Dark Mode</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0; padding: 0;
+    background: #0f0f0f;
+    color: #eee;
+    font-family: 'Roboto Mono', monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  .container {
+    background: #121212;
+    border: 2px solid #00ffa3;
+    border-radius: 15px;
+    box-shadow:
+      0 0 15px #00ffa3,
+      0 0 30px #00ffa3,
+      inset 0 0 10px #00ffa3;
+    padding: 40px 50px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: #00ffa3;
+    text-shadow:
+      0 0 5px #00ffa3,
+      0 0 15px #00ffa3;
+  }
+
+  textarea {
+    width: 100%;
+    height: 140px;
+    background: #1a1a1a;
+    border: 1.5px solid #00ffa3;
+    border-radius: 12px;
+    padding: 20px;
+    font-size: 1.1rem;
+    color: #eee;
+    resize: vertical;
+    font-family: 'Roboto Mono', monospace;
+    box-shadow:
+      inset 0 0 10px #00ffa3;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  textarea:focus {
+    outline: none;
+    border-color: #00ffc8;
+    box-shadow:
+      0 0 10px #00ffc8,
+      inset 0 0 15px #00ffc8;
+    background: #121212;
+  }
+
+  input[type="submit"] {
+    margin-top: 30px;
+    background: linear-gradient(45deg, #00ffa3, #00ffc8);
+    border: none;
+    border-radius: 50px;
+    padding: 15px 60px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #0f0f0f;
+    cursor: pointer;
+    box-shadow:
+      0 0 10px #00ffa3,
+      0 0 20px #00ffc8;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  input[type="submit"]:hover {
+    background: linear-gradient(45deg, #00ffc8, #00ffa3);
+    box-shadow:
+      0 0 20px #00ffc8,
+      0 0 30px #00ffa3,
+      0 0 40px #00ffc8;
+  }
+
+  .result {
+    margin-top: 35px;
+    padding: 25px;
+    border-radius: 15px;
+    background: #0a0a0a;
+    color: #00ffa3;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-shadow:
+      0 0 10px #00ffa3,
+      0 0 20px #00ffc8;
+    user-select: none;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Email Spam Detector</h1>
+    <form method="POST">
+      <textarea name="email" placeholder="Enter your email text here..."></textarea>
+      <input type="submit" value="Check Spam" />
+    </form>
+
+    {% if Result %}
+      <div class="result">{{ Result }}</div>
+    {% endif %}
+  </div>
+</body>
+</html>
