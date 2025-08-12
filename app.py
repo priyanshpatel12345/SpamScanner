@@ -13,6 +13,7 @@ tfidf = pickle.load(open('vectorizer.pkl', 'rb'))
 mnb = pickle.load(open('model.pkl', 'rb'))
 
 # Download necessary nltk data (fix typo 'punkt_tab' to 'punkt')
+nltk.download('punkt_tab')
 nltk.download('punkt')
 nltk.download('stopwords')
 
